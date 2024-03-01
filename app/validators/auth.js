@@ -1,6 +1,7 @@
 import { check } from "express-validator"
 import validateResult from "../helpers/validateHelper.js"
 
+//Validator for auth/register
 const validateCreate = [
     check("name")
         .not()
@@ -19,6 +20,7 @@ const validateCreate = [
     }
 ]
 
+// Validator for auth/login
 const validateLogin = [
     check("email")
         .not()

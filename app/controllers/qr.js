@@ -2,6 +2,8 @@ import { httpError } from "../helpers/handleError.js"
 import { qrGenerator } from "../helpers/handleQrGenerator.js";
 import userModel from "../models/users.js"
 
+//Generates QR
+//Add QR to the user register
 const addQR = async (req, res) => {
     try {
         const _id = req.params.id
@@ -15,29 +17,27 @@ const addQR = async (req, res) => {
             console.error(updated)
             return res.status(500).send({message: "Server Error"})
         }
-
-        console.info(updated)
         res.status(200).send({message: 'OK'})
     } catch (error) {
+        console.error(error)
         httpError(res, error)
     }
 }
 
+//Delets qr
+// Needs user id and qr id
 const deleteQR = async (req, res) => {
-
     try {
         const _id = req.params.user
         const qr = req.params.qr
     
-        const deleted = await userModel.updateOne({_id: _id}, {$pull: {qr: {_id: qr}}})
-        console.info(deleted)
+        await userModel.updateOne({_id: _id}, {$pull: {qr: {_id: qr}}})
 
         res.status(200).send({message: 'OK'})
-
     } catch (error) {
+        console.error(error)
         httpError(res, error)
     }
-    
 }
 
 export { addQR, deleteQR }

@@ -1,5 +1,6 @@
 import { validationResult } from "express-validator"
 
+//Handle validation models
 const validateResult = (req, res, next) => {
     try {
         validationResult(req).throw()

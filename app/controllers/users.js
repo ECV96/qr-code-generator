@@ -1,15 +1,18 @@
 import { httpError } from "../helpers/handleError.js"
 import userModel from "../models/users.js" 
 
+// Get a list of all users
 const getUsers = async (req, res) => {
     try {
         const listAll = await userModel.find({})
         return res.status(200).send({data: listAll})
     } catch (error) {
+        console.error("Error in getUsers", error)
         httpError(res, error)
     }
 }
 
+// Get a user from id
 const getUser = async (req, res) => {
     try {
         const _id = req.params.id
@@ -24,16 +27,9 @@ const getUser = async (req, res) => {
         })
 
     } catch (error) {
+        console.error(error)
         httpError(res,error)
     }
 }
 
-const updateUser = (req, res) => {
-    
-}
-
-const deleteUsers = (req, res) => {
-    
-}
-
-export {getUsers, getUser, updateUser, deleteUsers}
+export {getUsers, getUser}

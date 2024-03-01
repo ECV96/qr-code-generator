@@ -1,5 +1,6 @@
 import qrcode from "qrcode";
 
+//Generates QR
 const qrGenerator = (url) => {
 
     return new Promise((resolve, reject) => {
@@ -11,9 +12,6 @@ const qrGenerator = (url) => {
             }
         })
     })
-
-     
-
 }
 
 export { qrGenerator }

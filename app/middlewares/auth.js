@@ -1,3 +1,5 @@
+
+//TODO: Finish a real Authorization
 const isAuthorized = (req, res, next) => {
     const token = req.headers.authorization?.split(' ').pop()
     if(token === "123") next()

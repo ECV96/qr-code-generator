@@ -1,6 +1,7 @@
 import { check } from "express-validator"
 import validateResult from "../helpers/validateHelper.js"
 
+//Validator for qr/:id
 const validateAddQR = [
     check("url")
         .not()
