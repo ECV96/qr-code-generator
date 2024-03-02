@@ -7,7 +7,6 @@ const qrGenerator = (url) => {
         qrcode.toDataURL(url, (err, data) => {
             if(err) reject(err)
             else {
-                console.info(data)
                 resolve(data)
             }
         })
