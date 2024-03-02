@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken"
 
+//Generates token 
 const tokenSign = async (user) => {
     return jwt.sign(
         {
@@ -12,6 +13,7 @@ const tokenSign = async (user) => {
     );
 }
 
+//Verify token
 const verifyToken = async (token) => {
     try {
         return jwt.verify(token, process.env.JWT_SECRET)
@@ -20,6 +22,7 @@ const verifyToken = async (token) => {
     }
 }
 
+//Decoded token
 const decodeSign = (token) => {
     return jwt.decode(token, null)
 }

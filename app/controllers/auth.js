@@ -1,6 +1,7 @@
 import { httpError } from "../helpers/handleError.js"
 import userModel from "../models/users.js"
 import { encrypt, compare} from "../helpers/handleBcrypt.js"
+import { tokenSign } from "../helpers/generateToken.js"
 
 // User login
 const login = async (req, res) => {
@@ -13,11 +14,16 @@ const login = async (req, res) => {
         //bcrypt password comparison
         const checkPassword = await compare(password, user.password)
         if (checkPassword) {
+            
+            //Token creation
+            const tokenSession = await tokenSign(user)
+
             return res.status(200).send({
                 data: {
                     name: user.name,
                     email: user.email
-                }
+                },
+                tokenSession
             })
         } else {
             return res.status(409).send({
