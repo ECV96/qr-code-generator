@@ -16,4 +16,14 @@ const validateAddQR = [
     }
 ]
 
-export { validateAddQR }
+const validateDeleteQr = [
+    check("user")
+        .isMongoId(),
+    check("qr")
+        .isMongoId(),
+    (req,res,next) => {
+        validateResult(req, res, next)
+    }
+]
+
+export { validateAddQR, validateDeleteQr }
