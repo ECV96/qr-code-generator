@@ -46,6 +46,18 @@ const swaggerDefinition = {
                     },
                 },
             },
+            qrGenerator: {
+                type: "object",
+                required: ["url", "name"],
+                properties: {
+                    url: {
+                        type: "string"
+                    },
+                    name: {
+                        type: "string"
+                    },
+                },
+            },
         },
     },
 }
