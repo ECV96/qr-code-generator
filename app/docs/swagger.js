@@ -42,7 +42,7 @@ const swaggerDefinition = {
                         type: "string"
                     },
                     password: {
-                        type: string
+                        type: "string"
                     },
                 },
             },
