@@ -10,7 +10,7 @@ const router = express.Router()
  * /login:
  *  post:
  *      tags:
- *          - auth
+ *          - Auth
  *      summary: "User Login"
  *      description: "Endpoint to login a user and generate JWT"
  *      requestBody:
@@ -34,7 +34,7 @@ router.post('/login', validateLogin, login)
  * /register:
  *  post:
  *      tags:
- *          - auth
+ *          - Auth
  *      summary: "User Registration"
  *      description: "Endpoint to Register a new user in the database"
  *      requestBody:
