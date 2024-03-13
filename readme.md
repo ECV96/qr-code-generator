@@ -6,6 +6,14 @@ This project was created to serve as a backend for an application that manages u
 
     npm install
 
+## ENV Variables
+
+    DB_URI = Your mongodb uri
+    PORT = Port on which the server will run
+    JWT_SECRET = Secret to create the JWT
+
+    It's necessary to create all this variables on your .env file in the root of the project
+
 ## Run the app
 
     npm run start
